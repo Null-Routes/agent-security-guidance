@@ -26,32 +26,27 @@ canonical entries by stable ID, such as `AUTHZ-003`.
 >
 > My task: [describe your task]
 
-## Give the agent access
+## Access and limitations
 
-The repository is currently **private**. A URL does not grant access by itself. Your agent
-must have an authorized way to read the repository, for example a GitHub connection that you
-have authorized for this repository, or local access to a clone. Share only the access needed.
+This repository is public, so no GitHub sign-in or special repository permission is required
+to read it. An agent still needs web or GitHub retrieval capability to open the index and its
+linked files. A URL alone does not guarantee that the agent can browse them.
 
-If your agent cannot access private GitHub repositories, either:
-
-1. Upload `index.md` and the relevant linked entry files to the agent's project or conversation,
-   if supported; or
-2. Make the repository public only if you are comfortable publishing all of its contents.
-
-Do not paste credentials, access tokens, or other secrets into a prompt. If the agent cannot
-read an entry, provide the file yourself or ask it to proceed without claiming to have used it.
+If the agent cannot open GitHub links, use a local clone that it can read, or upload `index.md`
+and the relevant entry files to the agent's project or conversation, if supported. Never paste
+credentials or access tokens into a prompt.
 
 ## Using different coding agents
 
 The workflow is the same across agents; only the way you provide repository access differs.
 
-- **Claude, ChatGPT, or Gemini web apps:** Include the index URL and prompt above. If the agent
-  cannot open the private repository, use an authorized GitHub connection if available, or
-  upload the index and selected entries. A URL alone is not enough.
+- **Claude, ChatGPT, or Gemini web apps:** Include the public index URL and prompt above. The
+  app must have web access or another way to retrieve GitHub files; otherwise upload the index
+  and selected entries.
 - **IDE and coding agents** such as GitHub Copilot, Cursor, Claude Code, or Codex: give the
-  agent the index URL. If it cannot fetch the private repo, clone this repository somewhere
-  the agent can read and ask it to open `index.md` and the linked files there.
-- **Any other agent:** Use the same prompt. It needs web/GitHub access to the private repo or
+  agent the index URL. If it cannot fetch GitHub files, clone this repository somewhere the
+  agent can read and ask it to open `index.md` and the linked files there.
+- **Any other agent:** Use the same prompt. It needs web/GitHub access to the public repo or
   the relevant Markdown files supplied as context.
 
 Features and connector availability depend on the agent, account, and configuration. This
